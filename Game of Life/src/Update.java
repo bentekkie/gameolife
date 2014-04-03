@@ -13,7 +13,7 @@ public class Update {
 	 for(int y=0; y<length; y++){
          for(int x=0; x<width; x++){
              	Color g = new Color(128,128,128);
-             	if(main.state[x][y]){
+             	if(ma																																																																																																																												in.state[x][y]){
              		
              	}else{
              		update++;

@@ -87,7 +87,7 @@ public class ButtonGrid extends JFrame {
                                     	}
                                     	
                                         System.out.println("("+x1+","+y1+")");
-                                    }}); */
+                                    }});kjgdkjglgdgjkd */
                         }
                 }
                 ActionListener actListner = new ActionListener() {
