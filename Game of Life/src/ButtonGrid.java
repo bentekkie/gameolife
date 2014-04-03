@@ -97,10 +97,8 @@ public class ButtonGrid extends JFrame {
                 	public void actionPerformed(ActionEvent event) {
 
                 	     timer++;
-                	     ButtonGrid.frame.setTitle("Score: "+Update.score+"^2/"+ButtonGrid.timer+" = "+(Update.score*Update.score)/ButtonGrid.timer);
-
-                	     
-
+                	   
+                	     ButtonGrid.frame.setTitle(Update.title());
                 	}
 
                 	  };

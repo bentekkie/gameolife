@@ -23,7 +23,7 @@ public class Update {
                      }}
 	 			score = 0;
 	 			
-	 			ButtonGrid.frame.setTitle("Score: "+score+"^2/"+ButtonGrid.timer+" = "+(score*score)/ButtonGrid.timer);
+	 			ButtonGrid.frame.setTitle(title());
 	 			Random rand = new Random();
 	 			ButtonGrid.grid[rand.nextInt(19)][rand.nextInt(19)].setBackground(new Color(255,0,0));
 	 			ButtonGrid.timer = 0;;
@@ -40,11 +40,14 @@ public class Update {
 			    widrand = rand.nextInt(19);
 			    lenran = rand.nextInt(19);
 			    score++;
-			    ButtonGrid.frame.setTitle("Score: "+score+"^2/"+ButtonGrid.timer+" = "+(score*score)/ButtonGrid.timer);
+			    ButtonGrid.frame.setTitle(title());
 			    return true;
 		}else{
 			return false;
 		}
+	}
+	public static String title(){
+		return   "Score: "+Update.score+"^2/"+ButtonGrid.timer+" = "+(Update.score*Update.score)/ButtonGrid.timer;
 	}
 
  
