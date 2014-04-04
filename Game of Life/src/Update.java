@@ -13,7 +13,7 @@ public class Update {
 	 for(int y=0; y<length; y++){
          for(int x=0; x<width; x++){
              	Color g = new Color(128,128,128);
-             	if(ma																																																																																																																												in.state[x][y]){
+             	if(main.state[x][y]){
              		
              	}else{
              		update++;
@@ -25,7 +25,7 @@ public class Update {
 	 			
 	 			ButtonGrid.frame.setTitle(title());
 	 			Random rand = new Random();
-	 			ButtonGrid.grid[rand.nextInt(19)][rand.nextInt(19)].setBackground(new Color(255,0,0));
+	 			ButtonGrid.grid[rand.nextInt(main.wid)][rand.nextInt(main.len)].setBackground(new Color(255,0,0));
 	 			ButtonGrid.timer = 0;;
          }
 	public static void randsel(int width, int length){
@@ -37,8 +37,8 @@ public class Update {
 		Color a = ButtonGrid.grid[x][y].getBackground(); 
 		if(a.getRed() == 255){
 			 Random rand = new Random();
-			    widrand = rand.nextInt(19);
-			    lenran = rand.nextInt(19);
+			    widrand = rand.nextInt(main.wid);
+			    lenran = rand.nextInt(main.len);
 			    score++;
 			    ButtonGrid.frame.setTitle(title());
 			    return true;
@@ -47,9 +47,29 @@ public class Update {
 		}
 	}
 	public static String title(){
-		return   "Score: "+Update.score+"^2/"+ButtonGrid.timer+" = "+(Update.score*Update.score)/ButtonGrid.timer;
+		double scored = Math.log10(score)*Math.log10(score)*10;
+		scored = Math.round(scored*100)/100.0d;
+		String scoref = doubleToStringFraction(scored);
+		
+		
+		return   "Score: "+scoref;
+	}
+	public static int gcd(int a, int b)
+	{
+		if (b == 0)
+			return a;
+		else
+			return gcd(b, a % b);
 	}
 
+public static String doubleToStringFraction(Double d)
+	{
+		StringBuffer result = new StringBuffer(" " + ((int) Math.floor(d)));
+		int whole = (int) ((d - Math.floor(d)) * 10000);
+		int gcd = gcd(whole, 10000);
+		result.append(" " + (whole / gcd) + "/" + 10000 / gcd + " ");
+		return result.toString();
+	}
  
 	}
 

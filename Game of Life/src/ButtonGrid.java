@@ -53,7 +53,7 @@ public class ButtonGrid extends JFrame {
                             	grid[x][y].addMouseListener(new java.awt.event.MouseAdapter() {
                             	    public void mouseEntered(java.awt.event.MouseEvent evt) {
                                     	Color r = new Color(255,0,0);
-                                    	if(Update.check(x1, y1, 19, 19)){
+                                    	if(Update.check(x1, y1, main.wid, main.len)){
                                     		Color g = new Color(128,128,128);
                                 	        grid[x1][y1].setBackground(g);
                                     		grid[Update.widrand][Update.lenran].setBackground(r);;
@@ -107,21 +107,21 @@ public class ButtonGrid extends JFrame {
                 	  timer.start();
                 frame.setTitle("Score: "+Update.score);
                 Random rand = new Random();
-	 			ButtonGrid.grid[rand.nextInt(19)][rand.nextInt(19)].setBackground(new Color(255,0,0));
+	 			ButtonGrid.grid[rand.nextInt(main.wid)][rand.nextInt(main.len)].setBackground(new Color(255,0,0));
                 frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
                 frame.pack(); //sets appropriate size for frame
                 frame.setVisible(true); //makes frame visible
         }
         public static void main(String[] args) {
             
-                new ButtonGrid(19,19);//makes new ButtonGrid with 2 parameters
+                new ButtonGrid(main.wid,main.len);//makes new ButtonGrid with 2 parameters
         }
 }
 class clearHandler implements ActionListener
 {
 	public void actionPerformed(ActionEvent e)
 	{
-		Update.clear(19,19);
+		Update.clear(main.wid,main.len);
 		System.out.println(Update.update+" squares cleared!");
 	}
 }
